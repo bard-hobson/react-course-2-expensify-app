@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Brad Hobson",
   "license": "MIT",
+  "engines":{
+    "node": "11.10.0"
+  },
   "scripts": {
     "build:dev": "webpack --env development",
     "build:prod": "webpack -p --env production",
@@ -41,7 +44,7 @@
     "style-loader": "0.18.2",
     "uuid": "3.1.0",
     "validator": "8.0.0",
-    "webpack": "3.1.0"
+    "webpack": "^4.40.2"
   },
   "devDependencies": {
     "enzyme": "3.0.0",
