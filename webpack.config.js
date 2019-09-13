@@ -31,8 +31,7 @@ module.exports = (env, argv) => {
                             options: {
                                 sourceMap: true
                             }
-                        }
-                        
+                        } 
                     ]
                 })
             }]
