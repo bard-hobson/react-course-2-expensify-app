@@ -1,6 +1,11 @@
 // Expenses Reducer
 const expensesReducerDefaultState = [];
 
+// 1. Reducers are pure functions
+    // Output is only determined by the input
+// 2. Never change state or action 
+
+
 export default (state = expensesReducerDefaultState, action) => {
     switch (action.type) {
         case 'ADD_EXPENSE':
