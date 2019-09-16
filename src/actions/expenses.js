@@ -15,7 +15,7 @@ import database from '../firebase/firebase';
     // other actions and do whatever it wants)
 
 
-// ADD_EXPENSE - action generated
+// ADD_EXPENSE - action generator
 export const addExpense = (expense) => ({
    type: 'ADD_EXPENSE',
    expense
@@ -69,6 +69,15 @@ export const editExpense = (id, updates) => ({
     id,
     updates
 });
+
+export const startEditExpense = (id, updates) => {
+    return (dispatch) => {
+        return database.ref(`expenses/${id}`).update(updates)
+        .then(() => {
+            dispatch(editExpense(id, updates));
+        });
+    };
+};
 
 // SET_EXPENSES
 export const setExpenses = (expenses) => ({
