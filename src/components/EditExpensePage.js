@@ -1,17 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
+import RemoveExpenseModal from './RemoveExpenseModal';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
+    state = {
+        modelOpen: undefined,
+        handleNoOption: undefined
+    };
     onSubmit = (expense) => {
         this.props.startEditExpense(this.props.expense.id, expense);
         this.props.history.push('/');
     };
-    onClick = () => {
+    onClick = (expense) => {
+        this.setState(() => ({ modelOpen: true, expense }))
+    };
+    handleNoOption = () => {
+        this.setState(() => ({ modelOpen: undefined }));
+    };
+    handleYesOption = () => {
         this.props.startRemoveExpense({ id: this.props.expense.id });
         this.props.history.push('/');
-    }
+    };
     render(){
         return (
             <div>
@@ -27,20 +38,27 @@ export class EditExpensePage extends React.Component {
                     />
                     <button className="button button--secondary" onClick={this.onClick}>Remove Expense</button>
                 </div>
+                <RemoveExpenseModal 
+                    modelOpen={this.state.modelOpen}
+                    expense={this.props.expense}
+                    handleNoOption={this.handleNoOption}
+                    handleYesOption={this.handleYesOption}
+                />
             </div>
         )
     }
 }
 
 const mapStateToProps = (state, props) => ({
-        expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+        //console.log('props', props);
+        //return {
+            expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+        //}
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = (dispatch) => ({
     startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
     startRemoveExpense: (data) => dispatch(startRemoveExpense(data))
 });
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);

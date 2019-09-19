@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
 
+// stateless functional component
 export const ExpenseList = (props) => (
     <div className="content-container">
         <div className="list-header">
@@ -26,6 +27,7 @@ export const ExpenseList = (props) => (
     </div>
 );
 
+// maps the store state to the components props
 const mapStateToProps = (state) => {
     return {
         expenses: selectExpenses(state.expenses, state.filters)
@@ -33,3 +35,9 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(ExpenseList);
+// Above default is the same as below.
+// const ConnectedExpenseList = connect((state) => {
+    // return { // return an object, usually things from the state (in key:value pairs)
+    //     expenses: selectExpenses(state.expenses, state.filters)
+    // };
+//})(ExpenseList);

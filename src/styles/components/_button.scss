@@ -6,6 +6,7 @@
     font-weight: 100;
     font-size: $font-size-large;
     line-height: 1;
+    margin-right: $s-size;
     padding: $s-size;
     text-decoration: none;
 }
@@ -16,4 +17,8 @@
 
 .button--secondary{
     background: #888888;
+}
+
+.button--red {
+    background: #990000;
 }
