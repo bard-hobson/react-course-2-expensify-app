@@ -1,12 +1,34 @@
 .box-layout {
     align-items: center;
-    background: url('/images/bg2.jpg');
+   // background: url('/images/bg2.jpg');
     background-size: cover;
     display: flex;
     height: 100vh;
     justify-content: center;
     
     width: 100vw;
+
+    &__video-container {
+        bottom: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+
+        & video {
+            min-width: 100%;
+            min-height: 100%;
+
+            width: auto;
+            height: auto;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
 }
 
 .box-layout__box {
@@ -15,6 +37,7 @@
     padding: $l-size $m-size;
     text-align: center;
     width: 25rem;
+    z-index: 5;
 }
 
 .box-layout__title {

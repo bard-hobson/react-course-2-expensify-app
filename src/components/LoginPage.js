@@ -4,6 +4,11 @@ import { startLogin } from '../actions/auth';
 
 export const LoginPage = ({ startLogin }) => (
     <div className="box-layout">
+        <div className="box-layout__video-container">
+            <video autoPlay muted loop id="myVideo">
+                <source src="/images/bg3.mp4" type="video/mp4" />
+            </video>
+        </div>
         <div className="box-layout__box">
             <h1 className="box-layout__title">Expensify</h1>
             <p>It's time to get your expenses under control.</p>
