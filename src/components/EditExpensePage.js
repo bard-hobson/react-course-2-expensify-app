@@ -32,13 +32,13 @@ export class EditExpensePage extends React.Component {
                     </div>
                 </div>
                 <div className="content-container">
-                    <ExpenseForm 
+                    <ExpenseForm
                         expense={this.props.expense}
                         onSubmit={this.onSubmit}
                     />
                     <button className="button button--secondary" onClick={this.onClick}>Remove Expense</button>
                 </div>
-                <RemoveExpenseModal 
+                <RemoveExpenseModal
                     modelOpen={this.state.modelOpen}
                     expense={this.props.expense}
                     handleNoOption={this.handleNoOption}
